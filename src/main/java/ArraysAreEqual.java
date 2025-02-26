@@ -1,4 +1,3 @@
-//see test cases.
 public class ArraysAreEqual {
     /**
      * Check if two arrays are equal to each other. Return true if all of the values in a are
@@ -14,7 +13,29 @@ public class ArraysAreEqual {
      * @param b the second array.
      * @return true if the values of a are equal to the values of b.
      */
-    public boolean equal(int[] a, int[] b){
-        return false;
+    public boolean equal(int[] a, int[] b) {
+        // Check if both arrays are null (special case)
+        if (a == null && b == null) {
+            return true;
+        }
+        
+        // Check if one of the arrays is null and the other is not
+        if (a == null || b == null) {
+            return false;
+        }
+
+        // Check if both arrays have the same length
+        if (a.length != b.length) {
+            return false;
+        }
+
+        // Compare each element of the arrays
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] != b[i]) {
+                return false; // If any element doesn't match, return false
+            }
+        }
+
+        return true; // If all elements are the same, return true
     }
 }
